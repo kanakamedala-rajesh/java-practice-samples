@@ -13,7 +13,7 @@ public class CommonArrayNumbers {
         System.out.println("Provided Array 2: " + Arrays.toString(array2));
 
         // Task 1: Find all common numbers in arrays if no common numbers or 0 is the common number print -1
-        int[] commonElements = task1();
+        int[] commonElements = getCommonElements();
         if (commonElements.length == 0) {
             System.out.println("No Common Elements: -1");
         } else {
@@ -21,16 +21,16 @@ public class CommonArrayNumbers {
         }
 
         // Task 2: Find the smallest common number.
-        int smallestNumber = task2(commonElements);
+        int smallestNumber = getSmallestNumber(commonElements);
         System.out.println("Smallest Number: " + smallestNumber);
 
         // Task 3: if smallest number not single digit add all digits in that number.
-        int sum = task3(smallestNumber);
+        int sum = getSumOfDigits(smallestNumber);
         System.out.println("Smallest number sum: " + ((sum == 0) ? "smallest number is single digit" : sum));
 
         // Task 4: Print largest to the smallest numbers matching smallest number value in descending order.
         // (if smallest number is 3 in array print 3 numbers, if smallest number is more than array size print all numbers in array)
-        task4(smallestNumber);
+        printArrayInDescendingOrder(smallestNumber);
     }
 
     /**
@@ -38,7 +38,7 @@ public class CommonArrayNumbers {
      *
      * @param numberOfElementsToPrint -  number of elements to print
      */
-    private static void task4(int numberOfElementsToPrint) {
+    private static void printArrayInDescendingOrder(int numberOfElementsToPrint) {
         Arrays.sort(array1);
         Arrays.sort(array2);
 
@@ -75,7 +75,7 @@ public class CommonArrayNumbers {
      * @param number - number to find sum of digits
      * @return sum of digits in given number, returns 0 if number is single digit
      */
-    private static int task3(int number) {
+    private static int getSumOfDigits(int number) {
         int sum = 0;
         if (number >= 10) {
             while (number > 0) {
@@ -92,7 +92,7 @@ public class CommonArrayNumbers {
      * @param array - array param
      * @return returns smallest number in given array
      */
-    private static int task2(int[] array) {
+    private static int getSmallestNumber(int[] array) {
         Arrays.sort(array);
         return array[0];
     }
@@ -102,7 +102,7 @@ public class CommonArrayNumbers {
      *
      * @return returns Common elements array
      */
-    private static int[] task1() {
+    private static int[] getCommonElements() {
         int[] tmpCommonArray = new int[Math.max(array1Size, array2Size)];
         int commonArrayIndex = 0;
         for (int array1Element : array1) {
