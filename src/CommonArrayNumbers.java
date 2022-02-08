@@ -1,9 +1,16 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * 1. Find all common numbers in a array if no common  numbers or 0 is common number print -1
+ * 2. Find the smallest common number.
+ * 3. If smallest number >10 add all digits in number.
+ * 4. Print largest to the smallest numbers matching smallest number value in descending order.
+ * (if smallest number is 3 in array print 3 numbers, if smallest number is more than array size print all numbers in array)
+ */
 public class CommonArrayNumbers {
-    static int array1Size, array2Size;
-    static int[] array1, array2;
+    public static int array1Size, array2Size;
+    public static int[] array1, array2;
 
     public static void main(String[] args) {
         System.out.println("Starting program");
@@ -43,10 +50,10 @@ public class CommonArrayNumbers {
         Arrays.sort(array2);
 
         System.out.println("Task 4 Array 1: ");
-        task4Print(numberOfElementsToPrint, array1);
+        printSpecifiedElements(numberOfElementsToPrint, array1);
 
         System.out.println("Task 4 Array 2: ");
-        task4Print(numberOfElementsToPrint, array2);
+        printSpecifiedElements(numberOfElementsToPrint, array2);
     }
 
     /**
@@ -55,10 +62,13 @@ public class CommonArrayNumbers {
      * @param array                   - array elements to print
      * @param numberOfElementsToPrint -  number of elements to print
      */
-    private static void task4Print(int numberOfElementsToPrint, int[] array) {
+    private static void printSpecifiedElements(int numberOfElementsToPrint, int[] array) {
         if (array.length > numberOfElementsToPrint) {
-            for (int i = numberOfElementsToPrint; i > 0; i--) {
-                System.out.print(array[i] + " ");
+            int arrayIndex = array.length - 1;
+            while (numberOfElementsToPrint > 0) {
+                System.out.print(array[arrayIndex] + " ");
+                arrayIndex--;
+                numberOfElementsToPrint--;
             }
             System.out.println("");
         } else {
