@@ -1,3 +1,4 @@
+import com.vs.CommonCharacters;
 import com.vs.MyString;
 
 public class MainClass {
@@ -14,5 +15,9 @@ public class MainClass {
         MyString myString = new MyString("Rajesh Kanakamedala");
         System.out.println("Index: " + myString.indexOf('r', true));
         System.out.println("Index: " + myString.indexOf('2', true));
+
+        CommonCharacters commonCharacters = new CommonCharacters("Syam", "Rajesh", "Lakshmi");
+        String commonCharactersString = commonCharacters.getCommonCharacters(true);
+        System.out.println("commonCharactersString: " + commonCharactersString);
     }
 }
